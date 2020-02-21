@@ -11,33 +11,24 @@ namespace NAspNet
     public class FakeWeb
     {
         private readonly IServiceCollection Services;
-        private ServiceProvider ServiceProvider;
 
-        public FakeWeb()
-        {
-            Services = new ServiceCollection();
-            ServiceProvider = Services.BuildServiceProvider();
-        }
-
-        public FakeWeb(IServiceCollection services) : this()
-        {
-            Services = services;
-            ServiceProvider = Services.BuildServiceProvider();
-        }
-
+        public FakeWeb() => Services = new ServiceCollection();
+        public FakeWeb(IServiceCollection services) => Services = services;
         public FakeWeb(Action<IServiceCollection> services) : this() => ConfigureServices(services);
 
         public void ConfigureServices(Action<IServiceCollection> configure)
         {
             configure(Services);
-            ServiceProvider = Services.BuildServiceProvider();
         }
+
+        public ServiceProvider BuildServiceProvider() => Services.BuildServiceProvider();
 
         public TController CreateController<TController>(string user, string[] roles)
             where TController : Controller
         {
+            var requestServices = BuildServiceProvider();
             var constructor = typeof(TController).GetConstructors().First();
-            var arguments = constructor.GetParameters().Select(x => ServiceProvider.GetService(x.ParameterType)).ToArray();
+            var arguments = constructor.GetParameters().Select(x => requestServices.GetService(x.ParameterType)).ToArray();
             var controller = constructor.Invoke(arguments) as TController;
 
             controller.ControllerContext = new ControllerContext
@@ -47,7 +38,7 @@ namespace NAspNet
                     User = new ClaimsPrincipal(ClaimsIdentityEx.Create(user, roles)),
                 },
             };
-            controller.HttpContext.RequestServices = ServiceProvider;
+            controller.HttpContext.RequestServices = requestServices;
 
             return controller;
         }
