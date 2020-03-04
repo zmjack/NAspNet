@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Security.Claims;
 
-namespace Dawnx.AspNetCore
+namespace NAspNet
 {
     public static class XClaimsIdentity
     {

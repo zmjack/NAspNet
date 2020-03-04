@@ -30,8 +30,8 @@ namespace NAspNet.Test
             var aa1 = provider.GetRequiredService<IA>().GetHashCode();
             var aa2 = provider.GetRequiredService<CA>().GetHashCode();
 
-            var aa3 = FakeWeb.BuildServiceProvider().GetRequiredService<IA>().GetHashCode();
-            var aa4 = FakeWeb.BuildServiceProvider().GetRequiredService<CA>().GetHashCode();
+            var aa3 = provider.GetRequiredService<IA>().GetHashCode();
+            var aa4 = provider.GetRequiredService<CA>().GetHashCode();
 
             var controller = FakeWeb.CreateController<HomeController>("a123", new[] { "tester" });
             var result = controller.Home();

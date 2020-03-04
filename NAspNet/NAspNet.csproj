@@ -6,6 +6,8 @@
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <Authors>zmjack</Authors>
     <Version>0.0.1</Version>
+    <AssemblyName>NAspNet</AssemblyName>
+    <RootNamespace>NAspNet</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

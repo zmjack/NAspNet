@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System;
 
-namespace Dawnx.AspNetCore
+namespace NAspNet
 {
     public static class XHttpResponse
     {
