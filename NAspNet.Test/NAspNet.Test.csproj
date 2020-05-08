@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\NAspNet.Preview\NAspNet.Preview.csproj" />
     <ProjectReference Include="..\NAspNet\NAspNet.csproj" />
   </ItemGroup>
 

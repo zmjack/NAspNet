@@ -30,15 +30,13 @@ namespace NAspNet.Test
             var aa1 = provider.GetRequiredService<IA>().GetHashCode();
             var aa2 = provider.GetRequiredService<CA>().GetHashCode();
 
-            var aa3 = provider.GetRequiredService<IA>().GetHashCode();
-            var aa4 = provider.GetRequiredService<CA>().GetHashCode();
+            Assert.Equal(aa1, aa2);
 
             var controller = FakeWeb.CreateController<HomeController>("a123", new[] { "tester" });
             var result = controller.Home();
-            var view = (result as JsonResult).Value;
+            dynamic json = (result as JsonResult).Value;
 
-
-            Assert.Equal("a123", "");
+            Assert.Equal("a123", json.a);
         }
     }
 }
