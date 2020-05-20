@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 using NStandard;
 using System.ComponentModel;
 using System.IO;
@@ -79,6 +80,38 @@ namespace NAspNet
             @this.Body.CopyTo(memory, 256 * 1024);
             return memory.ToArray().String(encoding);
         }
+
+        /// <summary>
+        /// Deserializes the body(UTF-8), which is json, to a .NET object.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static object BodyJson(this HttpRequest @this) => BodyJson(@this, Encoding.UTF8);
+
+        /// <summary>
+        /// Deserializes the body, which is json, to a .NET object.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="encoding"></param>
+        /// <returns></returns>
+        public static object BodyJson(this HttpRequest @this, Encoding encoding) => JsonConvert.DeserializeObject(BodyString(@this, encoding));
+
+        /// <summary>
+        /// Deserializes the body(UTF-8), which is json, to a .NET object.
+        /// </summary>
+        /// <typeparam name="TRet"></typeparam>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static TRet BodyJson<TRet>(this HttpRequest @this) => BodyJson<TRet>(@this, Encoding.UTF8);
+
+        /// <summary>
+        /// Deserializes the body, which is json, to a .NET object.
+        /// </summary>
+        /// <typeparam name="TRet"></typeparam>
+        /// <param name="this"></param>
+        /// <param name="encoding"></param>
+        /// <returns></returns>
+        public static TRet BodyJson<TRet>(this HttpRequest @this, Encoding encoding) => JsonConvert.DeserializeObject<TRet>(BodyString(@this, encoding));
 
     }
 }
