@@ -45,8 +45,8 @@ namespace Microsoft.AspNetCore.Builder
 
                         CheckHourlyFile = hourlyFile;
 
-                        _loggingFileStream?.Dispose();
                         _loggingWriter?.Dispose();
+                        _loggingFileStream?.Dispose();
 
                         _loggingFileStream = new FileStream($"{PathBase}/{hourlyFile}", FileMode.Append, FileAccess.Write);
                         _loggingWriter = new StreamWriter(_loggingFileStream);
