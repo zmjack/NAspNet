@@ -49,8 +49,7 @@ namespace NAspNet
         /// </summary>
         /// <param name="this"></param>
         /// <returns></returns>
-        public static string UrlSchemeHostPath(this HttpRequest @this)
-            => $"{@this.Scheme}://{@this.Host}{@this.PathBase}{@this.Path}";
+        public static string UrlSchemeHostPath(this HttpRequest @this) => $"{@this.Scheme}://{@this.Host}{@this.PathBase}{@this.Path}";
 
         /// <summary>
         /// Returns $"{@this.Scheme}://{@this.Host}{@this.PathBase}{@this.Path}{@this.QueryString}".
@@ -58,8 +57,7 @@ namespace NAspNet
         /// </summary>
         /// <param name="this"></param>
         /// <returns></returns>
-        public static string Url(this HttpRequest @this)
-            => $"{@this.Scheme}://{@this.Host}{@this.PathBase}{@this.Path}{@this.QueryString}";
+        public static string Url(this HttpRequest @this) => $"{@this.Scheme}://{@this.Host}{@this.PathBase}{@this.Path}{@this.QueryString}";
 
         /// <summary>
         /// Gets the request body string(UTF-8).
@@ -77,7 +75,7 @@ namespace NAspNet
         public static string BodyString(this HttpRequest @this, Encoding encoding)
         {
             var memory = new MemoryStream();
-            @this.Body.CopyTo(memory, 256 * 1024);
+            @this.Body.CopyToAsync(memory, 256 * 1024).Wait();
             return memory.ToArray().String(encoding);
         }
 
