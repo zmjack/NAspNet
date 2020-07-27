@@ -35,7 +35,7 @@ namespace Microsoft.AspNetCore.Builder
                 {
                     var now = DateTime.Now;
                     var dailyDir = now.ToString("yyyyMMdd");
-                    var hourlyFile = $"{dailyDir}/{now:yyyyMMdd} {now.Hour:00}h-{(now.Hour + 1) % 24:00}h.txt";
+                    var hourlyFile = $"{dailyDir}/{now:yyyyMMdd}-{now.Hour:00}h-{(now.Hour + 1) % 24:00}h.txt";
 
                     if (CheckHourlyFile != hourlyFile)
                     {
