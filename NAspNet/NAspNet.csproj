@@ -5,7 +5,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <Authors>zmjack</Authors>
-    <Version>0.3.3</Version>
+    <Version>0.3.4</Version>
     <AssemblyName>NAspNet</AssemblyName>
     <RootNamespace>NAspNet</RootNamespace>
   </PropertyGroup>
