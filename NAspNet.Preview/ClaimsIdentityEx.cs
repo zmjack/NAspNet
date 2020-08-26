@@ -11,8 +11,7 @@ namespace NAspNet
             var identity = new ClaimsIdentity(authenticationType, ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
 
             identity.AddClaim(new Claim(ClaimsIdentity.DefaultNameClaimType, userName));
-            if (roles != null)
-                identity.AddClaims(roles.Select(x => new Claim(ClaimsIdentity.DefaultRoleClaimType, x)));
+            if (roles != null) identity.AddClaims(roles.Select(x => new Claim(ClaimsIdentity.DefaultRoleClaimType, x)));
 
             return identity;
         }

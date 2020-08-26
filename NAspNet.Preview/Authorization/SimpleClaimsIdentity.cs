@@ -9,17 +9,13 @@ namespace NAspNet
             : base(scheme, DefaultNameClaimType, DefaultRoleClaimType)
         {
             AddClaim(new Claim(DefaultNameClaimType, userName));
-
-            if (roles != null)
-                AddClaims(roles.Select(x => new Claim(DefaultRoleClaimType, x)));
+            if (roles != null) AddClaims(roles.Select(x => new Claim(DefaultRoleClaimType, x)));
         }
 
         public SimpleClaimsIdentity(string userName, string[] roles)
         {
             AddClaim(new Claim(NameClaimType, userName));
-
-            if (roles != null)
-                AddClaims(roles.Select(x => new Claim(RoleClaimType, x)));
+            if (roles != null) AddClaims(roles.Select(x => new Claim(RoleClaimType, x)));
         }
 
     }
