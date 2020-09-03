@@ -1,2 +1,2 @@
-nuget push "NAspNet/bin/Release/NAspNet.0.3.5.nupkg" -source nuget.org
+nuget push "NAspNet/bin/Release/NAspNet.0.4.0.nupkg" -source nuget.org
 pause

@@ -5,7 +5,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <Authors>zmjack</Authors>
-    <Version>0.3.5</Version>
+    <Version>0.4.0</Version>
     <AssemblyName>NAspNet</AssemblyName>
     <RootNamespace>NAspNet</RootNamespace>
   </PropertyGroup>
@@ -13,9 +13,9 @@
   <ItemGroup>
     <PackageReference Include="JSend" Version="0.9.5" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
-    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="2.2.0" />
-    <PackageReference Include="NStandard" Version="0.4.11" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="3.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="NStandard" Version="0.5.14" />
   </ItemGroup>
 
   <ItemGroup>

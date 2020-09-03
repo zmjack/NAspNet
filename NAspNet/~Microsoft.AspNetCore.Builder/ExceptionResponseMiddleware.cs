@@ -1,7 +1,4 @@
-﻿using Ajax;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Newtonsoft.Json;
+﻿using Microsoft.AspNetCore.Http;
 using System;
 using System.Threading.Tasks;
 
