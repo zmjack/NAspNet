@@ -40,8 +40,7 @@ namespace Microsoft.AspNetCore.Builder
                     if (CheckHourlyFile != hourlyFile)
                     {
                         var dir = $"{PathBase}/{dailyDir}";
-                        if (!Directory.Exists(dir))
-                            Directory.CreateDirectory(dir);
+                        if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
 
                         CheckHourlyFile = hourlyFile;
 
